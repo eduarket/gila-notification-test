@@ -12,13 +12,13 @@ Webapp for send notification messages
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/eduarket/gila-notification-test.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd gila-notification-test
 ```
 
 Start Docker
