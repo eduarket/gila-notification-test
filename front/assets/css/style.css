@@ -1,0 +1,12 @@
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #FFFFFF;
+    display: flex;
+    height: auto;
+}
+
+.wrapper {
+    width: 900px;
+    height: auto;
+    margin: auto;
+}

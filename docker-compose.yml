@@ -1,0 +1,54 @@
+version: "3.3"
+services:
+  front:
+    image: nginx:alpine
+    ports:
+      - "1111:80"
+    volumes:
+      - ./front:/usr/share/nginx/html
+      - ./front_nginx:/etc/nginx/conf.d
+    networks:
+      - gila
+  frontphp:
+    build: ./php
+    volumes:
+     - ./front:/usr/share/nginx/html
+    expose:
+      - 9000
+    networks:
+      - gila
+  back:
+    image: nginx:alpine
+    ports:
+      - "1112:80"
+    volumes:
+      - ./back:/usr/share/nginx/html
+      - ./back_nginx:/etc/nginx/conf.d
+    networks:
+      - gila
+  backphp:
+    build: ./php
+    volumes:
+     - ./back:/usr/share/nginx/html
+    expose:
+      - 9000
+    networks:
+      - gila
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: asd123
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - gila
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 1113:8080
+    networks:
+      - gila
+networks:
+  gila:
